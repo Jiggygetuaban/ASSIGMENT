@@ -9,6 +9,7 @@ public class JAT {
         Scanner scan = new Scanner(System.in);     
         JobSeekers seekerConf = new JobSeekers();
         Jobs jobConf = new Jobs();
+        Applications applConf = new Applications();
                 
         int opt;
         do {    
@@ -28,6 +29,7 @@ public class JAT {
                 switch (opt) {
                     case 1:
                         System.out.println("------------------------------------------------------------------");
+                        applConf.manageApplications(scan);
                         break;
                         
                     case 2:

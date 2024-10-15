@@ -12,7 +12,7 @@ public class JobSeekers {
         do {    
             try {
                 System.out.println("\n\t=== Job Seeker Management ===\n");
-                System.out.println("1. View All Seekers\n"
+                System.out.println("1. View All Job Seekers\n"
                         + "2. Add a Job Seeker\n"
                         + "3. Remove a Job Seeker\n"
                         + "4. Edit a Job Seeker\n"
