@@ -180,4 +180,23 @@ public class Config {
         }
         return false;
     }
+    
+    public String getDataFromID(String table, int id, String idColumn, String column){
+        String findID = "SELECT " + column + " FROM " + table + " WHERE " + idColumn + " = ?";
+        String data = "";
+        
+        try (Connection con = connectDB();      
+            PreparedStatement pst = con.prepareStatement(findID)){
+            
+            pst.setInt(1, id);
+            try (ResultSet rs = pst.executeQuery()) {
+                data = rs.getString(column);
+            }
+                               
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        return data;
+    }
 }
