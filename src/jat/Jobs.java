@@ -11,12 +11,14 @@ public class Jobs {
         int opt;
         do {    
             try {
-                System.out.println("\n\t=== Job Job Management ===\n");
+                System.out.println("\n--------------------------------------");
+                System.out.println("| == Job Job Management == |");
+                System.out.println("--------------------------------------");
                 System.out.println("1. View All Jobs\n"
                         + "2. Add a New Job\n"
                         + "3. Remove a Job\n"
                         + "4. Edit Job Details\n"
-                        + "5. Go back..");
+                        + "5. Exit..");
                 
                 System.out.print("\nEnter Option: ");
                 opt = scan.nextInt();
@@ -24,27 +26,20 @@ public class Jobs {
 
                 switch (opt) {
                     case 1:
-                        System.out.println("\n------------------------------------------------------------------");
                         viewJobs("SELECT * FROM jobs");
                         break;
                     case 2:
-                        System.out.println("------------------------------------------------------------------");
                         addJob(scan);
                         break;
                     case 3:
-                        System.out.println("------------------------------------------------------------------");
                         deleteJob(scan);
                         break;
                     case 4:
-                        System.out.println("------------------------------------------------------------------");
                         editJob(scan);
                         break;           
-                        
                     case 5:
                         System.out.println("\nGoing back to Main Menu...");
-                        System.out.println("------------------------------------------------------------------");
                         break;
-                        
                     default:
                         System.out.println("Invalid Option.");
                 }
@@ -57,7 +52,9 @@ public class Jobs {
     }
     
     public void viewJobs(String query){ 
-        System.out.println("\n\t\t\t\t\t\t\t   === JOBS LIST ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("  === JOBS LIST ==\n");
+        System.out.println("--------------------------------------");
        
         String[] Headers = {"ID", "Job Title", "Company Name", "Location", "Job Type"};
         String[] Columns = {"job_id", "job_title", "company_name", "location", "job_type"};
@@ -66,10 +63,12 @@ public class Jobs {
     }
 
     public void addJob(Scanner scan){
-        System.out.println("\n\t\t=== ADD A NEW JOB ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("  == ADD A NEW JOB ==\n");
+        System.out.println("--------------------------------------");
         
         System.out.println("Enter Job Details:");
-        
+     
         System.out.print("\nJob Title: ");
         String job_title = scan.nextLine();
         
@@ -88,8 +87,9 @@ public class Jobs {
     }
 
     public void deleteJob(Scanner scan){
-        System.out.println("\n\t\t=== REMOVE A JOB ===\n");
-        
+        System.out.println("\n--------------------------------------");
+        System.out.println("  == REMOVE A JOB ==");
+        System.out.println("--------------------------------------");
         System.out.print("Enter ID you want to delete: ");
         int id = scan.nextInt();
         
@@ -98,8 +98,9 @@ public class Jobs {
     }
 
     public void editJob(Scanner scan){
-        System.out.println("\n\t\t=== EDIT JOB DETAILS ===\n");
-        
+        System.out.println("\n--------------------------------------");
+        System.out.println("  === EDIT JOB DETAILS ==\n");
+        System.out.println("--------------------------------------");
         int id;
         do{
             System.out.print("\nEnter Job ID: ");

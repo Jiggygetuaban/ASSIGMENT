@@ -11,12 +11,14 @@ public class JobSeekers {
         int opt;
         do {    
             try {
-                System.out.println("\n\t=== Job Seeker Management ===\n");
+                System.out.println("\n--------------------------------------");
+                System.out.println("|  === Job Seeker Management ===  |");
+                System.out.println("----------------------------------------");
                 System.out.println("1. View All Job Seekers\n"
                         + "2. Add a Job Seeker\n"
                         + "3. Remove a Job Seeker\n"
                         + "4. Edit a Job Seeker\n"
-                        + "5. Go back..");
+                        + "5. Exit..");
                 
                 System.out.print("\nEnter Option: ");
                 opt = scan.nextInt();
@@ -24,27 +26,20 @@ public class JobSeekers {
 
                 switch (opt) {
                     case 1:
-                        System.out.println("\n------------------------------------------------------------------");
                         viewJobSeekers("SELECT * FROM job_seekers");
                         break;
                     case 2:
-                        System.out.println("------------------------------------------------------------------");
                         addJobSeeker(scan);
                         break;
                     case 3:
-                        System.out.println("------------------------------------------------------------------");
                         deleteJobSeeker(scan);
                         break;
                     case 4:
-                        System.out.println("------------------------------------------------------------------");
                         editJobSeeker(scan);
                         break;           
-                        
                     case 5:
                         System.out.println("\nGoing back to Main Menu...");
-                        System.out.println("------------------------------------------------------------------");
                         break;
-                        
                     default:
                         System.out.println("Invalid Option.");
                 }
@@ -57,7 +52,9 @@ public class JobSeekers {
     }
     
     public void viewJobSeekers(String query){ 
-        System.out.println("\n\t\t\t\t\t\t\t   === JOB SEEKERS LIST ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("  === JOB SEEKERS LIST ===\n");
+        System.out.println("----------------------------------------");
        
         String[] Headers = {"ID", "First Name", "Last Name", "Email", "Phone Number"};
         String[] Columns = {"seeker_id", "fname", "lname", "email", "phone"};
@@ -66,7 +63,9 @@ public class JobSeekers {
     }
 
     public void addJobSeeker(Scanner scan){
-        System.out.println("\n\t\t=== ADD A NEW JOB SEEKER ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("  == ADD A NEW JOB SEEKER ==  ");
+        System.out.println("----------------------------------------");
         
         System.out.println("Enter Job Seeker's Details:");
         
@@ -88,7 +87,9 @@ public class JobSeekers {
     }
 
     public void deleteJobSeeker(Scanner scan){
-        System.out.println("\n\t\t=== REMOVE A JOB SEEKER ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("  == REMOVE A JOB SEEKER   ==");
+        System.out.println("----------------------------------------");
         
         System.out.print("Enter ID you want to delete: ");
         int id = scan.nextInt();
@@ -98,7 +99,9 @@ public class JobSeekers {
     }
 
     public void editJobSeeker(Scanner scan){
-        System.out.println("\n\t\t=== EDIT A JOB SEEKER ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("    == EDIT A JOB SEEKER ===  ");
+        System.out.println("----------------------------------------");
         
         int id;
         do{

@@ -11,12 +11,14 @@ public class Applications {
         int opt;
         do {    
             try {
-                System.out.println("\n\t=== Application Management ===\n");
+                System.out.println("\n----------------------------------------");
+                System.out.println("|    === Application Management ===    |");
+                System.out.println("----------------------------------------");
                 System.out.println("1. View All Applications\n"
                         + "2. Add an Application\n"
                         + "3. Remove an Application\n"
                         + "4. Edit Application Details\n"
-                        + "5. Go back..");
+                        + "5. Exit..");
                 
                 System.out.print("\nEnter Option: ");
                 opt = scan.nextInt();
@@ -24,27 +26,20 @@ public class Applications {
 
                 switch (opt) {
                     case 1:
-                        System.out.println("\n------------------------------------------------------------------");
                         viewApplications("SELECT * FROM applications");
                         break;
                     case 2:
-                        System.out.println("------------------------------------------------------------------");
                         addApplication(scan);
                         break;
                     case 3:
-                        System.out.println("------------------------------------------------------------------");
                         deleteApplication(scan);
                         break;
                     case 4:
-                        System.out.println("------------------------------------------------------------------");
                         editApplication(scan);
                         break;           
-                        
                     case 5:
                         System.out.println("\nGoing back to Main Menu...");
-                        System.out.println("------------------------------------------------------------------");
                         break;
-                        
                     default:
                         System.out.println("Invalid Option.");
                 }
@@ -57,8 +52,9 @@ public class Applications {
     }
     
     public void viewApplications(String query){ 
-        System.out.println("\n\t\t\t\t\t\t\t   === APPLICATIONS LIST ===\n");
-       
+        System.out.println("\n--------------------------------------");
+        System.out.println("|    == APPLICATIONS LIST ==     |");
+        System.out.println("--------------------------------------");
         String[] Headers = {"Application ID", "Seeker's ID", "Job ID", "Application Date", "Status"};
         String[] Columns = {"appl_id", "seeker_id", "job_id", "appl_date", "status"};
         
@@ -66,7 +62,9 @@ public class Applications {
     }
 
     public void addApplication(Scanner scan){
-        System.out.println("\n\t\t=== ADD AN NEW APPLICATION ===\n");
+        System.out.println("\n--------------------------------------");
+        System.out.println("     == ADD AN NEW APPLICATION ==     ");
+        System.out.println("--------------------------------------");
         
         System.out.println("Enter Application Details:");
         
@@ -101,8 +99,9 @@ public class Applications {
     }
 
     public void deleteApplication(Scanner scan){
-        System.out.println("\n\t\t=== REMOVE AN APPLICATION ===\n");
-        
+        System.out.println("\n--------------------------------------");
+        System.out.println("   == REMOVE AN APPLICATION  ==  ");
+        System.out.println("--------------------------------------");
         System.out.print("Enter ID you want to delete: ");
         int id = scan.nextInt();
         
@@ -111,8 +110,9 @@ public class Applications {
     }
 
     public void editApplication(Scanner scan){
-        System.out.println("\n\t\t=== EDIT AN APPLICATION ===\n");
-        
+         System.out.println("\n--------------------------------------");
+        System.out.println("  == EDIT AN APPLICATION ==");
+         System.out.println("--------------------------------------");
         int id;
         do{
             System.out.print("\nEnter Application ID: ");

@@ -15,7 +15,9 @@ public class JAT {
         int opt;
         do {    
             try {
-                System.out.println("\n\t=== Job Application Tracker ===\n");
+                System.out.println("\n----------------------------------------");
+                System.out.println("|    === Job Application Tracker ===    |");
+                System.out.println("----------------------------------------");
                 System.out.println("1. Applications\n"
                         + "2. Job Seekers\n"
                         + "3. Jobs\n"
@@ -29,30 +31,20 @@ public class JAT {
                 
                 switch (opt) {
                     case 1:
-                        System.out.println("------------------------------------------------------------------");
                         applConf.manageApplications(scan);
                         break;
-                        
                     case 2:
-                        System.out.println("------------------------------------------------------------------");
                         seekerConf.manageJobSeekers(scan);
                         break;
-
                     case 3:
-                        System.out.println("------------------------------------------------------------------");
                         jobConf.manageJobs(scan);
                         break;
-
                     case 4:
-                        System.out.println("------------------------------------------------------------------");
                         invidualReport(scan, seekerConf);
                         break;
- 
                     case 5:
                         System.out.println("Exiting...");
-                        System.out.println("------------------------------------------------------------------");
                         break;
-
                     default:
                         System.out.println("Invalid Option.");
                 }
@@ -78,7 +70,7 @@ public class JAT {
                 System.out.println("Job Seeker ID Doesn't Exist.");
             }
         }while(!conf.doesIDExist("job_seekers", "seeker_id", s_id));
-        System.out.println("-------------------------------------------------------------------------------------------------------------\n");
+        System.out.println("-----------------------------------------------------------------------------------------\n");
         
         String fname = conf.getDataFromID("job_seekers", s_id, "seeker_id", "fname");
         String lname = conf.getDataFromID("job_seekers", s_id, "seeker_id", "lname");
