@@ -23,19 +23,20 @@ public class JobSeekers {
                 System.out.print("\nEnter Option: ");
                 opt = scan.nextInt();
                 scan.nextLine(); 
+                JobSeekers jb = new JobSeekers();
 
                 switch (opt) {
                     case 1:
-                        viewJobSeekers("SELECT * FROM job_seekers");
+                        jb.viewJobSeekers("SELECT * FROM job_seekers");
                         break;
                     case 2:
-                        addJobSeeker(scan);
+                        jb.addJobSeeker(scan);
                         break;
                     case 3:
-                        deleteJobSeeker(scan);
+                        jb.deleteJobSeeker(scan);
                         break;
                     case 4:
-                        editJobSeeker(scan);
+                        jb.editJobSeeker(scan);
                         break;           
                     case 5:
                         System.out.println("\nGoing back to Main Menu...");
@@ -133,6 +134,10 @@ public class JobSeekers {
         System.out.println("");
         String sql = "UPDATE job_seekers SET fname = ?, lname = ?, email = ?, phone = ? WHERE seeker_id = ?";
         conf.updateRecord(sql, fname, lname, email, phone, id);
+    }
+
+    void viewJobSeekers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

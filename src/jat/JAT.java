@@ -1,111 +1,54 @@
 package jat;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JAT {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);     
-        
-        JobSeekers seekerConf = new JobSeekers();
-        Jobs jobConf = new Jobs();
-        Applications applConf = new Applications();
-                
-        int opt;
-        do {    
-            try {
-                System.out.println("\n----------------------------------------");
-                System.out.println("|    === Job Application Tracker ===    |");
-                System.out.println("----------------------------------------");
-                System.out.println("1. Applications\n"
-                        + "2. Job Seekers\n"
-                        + "3. Jobs\n"
-                        + "4. Reports\n"
-                        + "5. Exit");
-                
-                System.out.print("\nEnter Option: ");
-                opt = scan.nextInt();
-                scan.nextLine();
-                System.out.println("");
-                
-                switch (opt) {
-                    case 1:
-                        applConf.manageApplications(scan);
-                        break;
-                    case 2:
-                        seekerConf.manageJobSeekers(scan);
-                        break;
-                    case 3:
-                        jobConf.manageJobs(scan);
-                        break;
-                    case 4:
-                        invidualReport(scan, seekerConf);
-                        break;
-                    case 5:
-                        System.out.println("Exiting...");
-                        break;
-                    default:
-                        System.out.println("Invalid Option.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-                scan.nextLine(); 
-                opt = -1; 
+        Scanner sc = new Scanner(System.in);
+        boolean exit = true;
+        do {
+            System.out.println("\n------------------------------------");
+            System.out.println("==JOB SEEKER MANAGEMENT==");
+            System.out.println("");
+            System.out.println("1. Job Seekers");
+            System.out.println("2. Jobs");
+            System.out.println("3. Applications");
+            System.out.println("4. Reports");
+            System.out.println("5. EXIT");
+
+            System.out.println("Enter Action: ");
+            int action = sc.nextInt();
+            sc.nextLine();
+
+            switch (action) {
+                case 1:
+                    JobSeekers js = new JobSeekers();
+                    js.manageJobSeekers(sc);
+                    break;
+                case 2:
+                    Jobs jb = new Jobs();
+                    jb.manageJobs(sc);
+                    break;
+                case 3:
+                    Applications ap = new Applications();
+                    ap.manageApplications(sc);
+                    break;
+                case 4:
+                    Reports rp = new Reports();
+                    rp.rtransaction();
+                    break;
+                case 5:
+                    System.out.println("Exit Selected...type 'yes' to continue: ");
+                    String resp = sc.nextLine();
+                    if (resp.equalsIgnoreCase("yes")) {
+                        exit = false;
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid Selection. Please try again.");
             }
-        } while (opt != 5);        
+        } while (exit);
     }
-    
-    public static void invidualReport(Scanner scan, JobSeekers seekerConf){
-        Config conf = new Config();
-        
-        seekerConf.viewJobSeekers("SELECT * FROM job_seekers");
-        
-        System.out.println("\nView Individual Reports:");
-        int s_id;
-        do{
-            System.out.print("Job Seeker ID: ");
-            s_id = scan.nextInt();
-            if(!conf.doesIDExist("job_seekers", "seeker_id", s_id)){
-                System.out.println("Job Seeker ID Doesn't Exist.");
-            }
-        }while(!conf.doesIDExist("job_seekers", "seeker_id", s_id));
-        System.out.println("-----------------------------------------------------------------------------------------\n");
-        
-        String fname = conf.getDataFromID("job_seekers", s_id, "seeker_id", "fname");
-        String lname = conf.getDataFromID("job_seekers", s_id, "seeker_id", "lname");
-        String email = conf.getDataFromID("job_seekers", s_id, "seeker_id", "email");
-        String phone = conf.getDataFromID("job_seekers", s_id, "seeker_id", "phone");
-        
-        System.out.println("\n\t\t + Job Seeker Applications Report +");
-        
-        System.out.println("\nJob Seeker ID: " + s_id);
-        System.out.println("Name: " + fname + " " + lname);
-        System.out.println("Email: " + email);
-        System.out.println("Phone Number: " + phone);
-        
-        System.out.println("\nApplications Histoty:");
-        
-        String sql = "SELECT "
-                        + "jobs.job_title, "
-                        + "jobs.company_name, "
-                        + "jobs.location, "
-                        + "jobs.job_type, "
-                        + "applications.appl_date, "
-                        + "applications.status "
-                    + "FROM "
-                         + "applications "
-                    + "JOIN "
-                        + "job_seekers ON applications.seeker_id = job_seekers.seeker_id "
-                    + "JOIN "
-                        + "jobs ON applications.job_id = jobs.job_id WHERE job_seekers.seeker_id = " + s_id;
-        
-        String[] headers = {"Job Title", "Company Name", "Location", "Job Type", "Application Date", "Status"};
-        String[] columns = {"job_title", "company_name", "location", "job_type", "appl_date", "status"};
-        
-        conf.viewRecords(sql, headers, columns);
-        System.out.println("\n");
-    }
+
 }
-
-
