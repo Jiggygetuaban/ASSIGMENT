@@ -57,7 +57,7 @@ public class Applications {
         System.out.println("|    == APPLICATIONS LIST ==     |");
         System.out.println("--------------------------------------");
         String[] Headers = {"Application ID", "Seeker's ID", "Job ID", "Application Date", "Status"};
-        String[] Columns = {"appl_id", "seeker_id", "job_id", "appl_date", "status"};
+        String[] Columns = {"appl_id", "seeker_id", "job_id", "appl_date", "appl_status"};
         
         conf.viewRecords(query, Headers, Columns);
     }
@@ -99,7 +99,7 @@ public class Applications {
         String stats = scan.nextLine();
         
         System.out.println("");
-        String sql = "INSERT INTO applications (seeker_id, job_id, appl_date, status) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO applications (seeker_id, job_id, appl_date, appl_status) VALUES (?, ?, ?, ?)";
         conf.addRecord(sql, seeker_id, job_id, date, stats);
     }
 
@@ -159,7 +159,7 @@ public class Applications {
         String stats = scan.nextLine();
         
         System.out.println("");
-        String sql = "UPDATE applications SET seeker_id = ?, job_id = ?, appl_date = ?, status = ? WHERE appl_id = ?";
+        String sql = "UPDATE applications SET seeker_id = ?, job_id = ?, appl_date = ?, appl_status = ? WHERE appl_id = ?";
         conf.updateRecord(sql, seeker_id, job_id, date, stats, id);
     }
     
