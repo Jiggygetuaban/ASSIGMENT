@@ -27,7 +27,7 @@ public class Applications {
 
                 switch (opt) {
                     case 1:
-                        ap.viewApplications("SELECT * FROM tbl_Application");
+                        ap.viewApplications("SELECT * FROM applications");
                         break;
                     case 2:
                         ap.addApplication(scan);
@@ -80,6 +80,7 @@ public class Applications {
             }
         }while(!conf.doesIDExist("job_seekers", "seeker_id", seeker_id));
         
+        
 
         int job_id;
         do{
@@ -98,7 +99,7 @@ public class Applications {
         String stats = scan.nextLine();
         
         System.out.println("");
-        String sql = "INSERT INTO tbl_Application (seeker_id, job_id, appl_date, status) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO applications (seeker_id, job_id, appl_date, status) VALUES (?, ?, ?, ?)";
         conf.addRecord(sql, seeker_id, job_id, date, stats);
     }
 
@@ -109,7 +110,7 @@ public class Applications {
         System.out.print("Enter ID you want to delete: ");
         int id = scan.nextInt();
         
-        String sql = "DELETE FROM tbl_Application WHERE appl_id = ?";
+        String sql = "DELETE FROM applications WHERE appl_id = ?";
         conf.deleteRecord(sql, id);
     }
 
@@ -121,14 +122,14 @@ public class Applications {
         do{
             System.out.print("\nEnter Application ID: ");
             id = scan.nextInt();
-            if(!conf.doesIDExist("tbl_Application", "appl_id", id)){
+            if(!conf.doesIDExist("applications", "appl_id", id)){
                 System.out.println("Application ID Doesn't Exist.");
             }
-        }while(!conf.doesIDExist("tbl_Application", "appl_id", id));
+        }while(!conf.doesIDExist("applications", "appl_id", id));
         scan.nextLine();
         
         System.out.println("Selected Record:");
-        viewApplications("SELECT * FROM tbl_Application WHERE appl_id = " + id);
+        viewApplications("SELECT * FROM applications WHERE appl_id = " + id);
         
         System.out.println("Enter New Application Details:");
         
@@ -158,7 +159,7 @@ public class Applications {
         String stats = scan.nextLine();
         
         System.out.println("");
-        String sql = "UPDATE tbl_Application SET seeker_id = ?, job_id = ?, appl_date = ?, status = ? WHERE appl_id = ?";
+        String sql = "UPDATE applications SET seeker_id = ?, job_id = ?, appl_date = ?, status = ? WHERE appl_id = ?";
         conf.updateRecord(sql, seeker_id, job_id, date, stats, id);
     }
     

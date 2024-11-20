@@ -66,12 +66,12 @@ public class Reports {
     }
 
     public void viewAllApplications() {
-        String qry = "SELECT applications.appl_id, job_seekers.fname, job_seekers.lname, jobs.job_title, applications.ap_status, applications.appl_date " +
+        String qry = "SELECT applications.appl_id, job_seekers.fname, job_seekers.lname, jobs.job_title, applications.appl_status, applications.appl_date " +
                 "FROM applications " +
                 "JOIN job_seekers ON applications.seeker_id = job_seekers.seeker_id " +
                 "JOIN jobs ON applications.job_id = jobs.job_id";
         String[] hdrs = {"Application ID", "Job Seeker First Name", "Job Seeker Last Name", "Job Title", "Application Status", "Application Date"};
-        String[] clms = {"appl_id", "fname", "lname", "job_title", "ap_status", "appl_date"};
+        String[] clms = {"appl_id", "fname", "lname", "job_title", "appl_status", "appl_date"};
 
         Config conf = new Config();
         conf.viewRecords(qry, hdrs, clms);
@@ -91,14 +91,14 @@ public class Reports {
             return;
         }
 
-        String qry = "SELECT applications.appl_id, jobs.job_title, job_seekers.fname, job_seekers.lname, applications.ap_status, applications.appl_date " +
+        String qry = "SELECT applications.appl_id, jobs.job_title, job_seekers.fname, job_seekers.lname, applications.appl_status, applications.appl_date " +
                 "FROM applications " +
                 "JOIN jobs ON applications.job_id = jobs.job_id " +
                 "JOIN job_seekers ON applications.seeker_id = job_seekers.seeker_id " +
                 "WHERE applications.seeker_id = ?";
 
         String[] hdrs = {"Application ID", "Job Title", "Job Seeker First Name", "Job Seeker Last Name", "Application Status", "Application Date"};
-        String[] clms = {"appl_id", "job_title", "fname", "lname", "ap_status", "appl_date"};
+        String[] clms = {"appl_id", "job_title", "fname", "lname", "appl_status", "appl_date"};
 
         conf.viewRecords(qry, hdrs, clms, jobSeekerId);
     }
