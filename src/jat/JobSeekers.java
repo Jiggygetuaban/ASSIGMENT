@@ -11,9 +11,9 @@ public class JobSeekers {
         int opt;
         do {    
             try {
-                System.out.println("\n--------------------------------------");
-                System.out.println("|  === Job Seeker Management ===  |");
-                System.out.println("----------------------------------------");
+                System.out.println("\n---------------------------------------");
+                System.out.println("|    === Job Seeker Management ===    |");
+                System.out.println("---------------------------------------");
                 System.out.println("1. View All Job Seekers\n"
                         + "2. Add a Job Seeker\n"
                         + "3. Remove a Job Seeker\n"

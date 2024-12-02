@@ -11,9 +11,9 @@ public class Jobs {
         int opt;
         do {    
             try {
-                System.out.println("\n--------------------------------------");
-                System.out.println("| == Job Job Management == |");
-                System.out.println("--------------------------------------");
+                System.out.println("\n------------------------------------");
+                System.out.println("|    === Job Job Management ===    |");
+                System.out.println("------------------------------------");
                 System.out.println("1. View All Jobs\n"
                         + "2. Add a New Job\n"
                         + "3. Remove a Job\n"

@@ -8,9 +8,9 @@ public class JAT {
         Scanner sc = new Scanner(System.in);
         boolean exit = true;
         do {
-            System.out.println("\n------------------------------------");
-            System.out.println("==JOB SEEKER MANAGEMENT==");
-            System.out.println("");
+            System.out.println("\n---------------------------------------");
+            System.out.println("|    === JOB SEEKER MANAGEMENT ===    |");
+            System.out.println("---------------------------------------");
             System.out.println("1. Job Seekers");
             System.out.println("2. Jobs");
             System.out.println("3. Applications");

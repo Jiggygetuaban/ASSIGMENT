@@ -12,7 +12,7 @@ public class Applications {
         do {    
             try {
                 System.out.println("\n----------------------------------------");
-                System.out.println("|    === Application Management ===    |");
+                System.out.println("| === Application Management ===    |");
                 System.out.println("----------------------------------------");
                 System.out.println("1. View All Applications\n"
                         + "2. Add an Application\n"

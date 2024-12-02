@@ -10,7 +10,8 @@ public class Reports {
 
         do {
             System.out.println("\n------------------------------------");
-            System.out.println("Reports Panel");
+            System.out.println("   |    === Report Panel ===    |");
+            System.out.println("------------------------------------");
             System.out.println("1. View All Job Seekers");
             System.out.println("2. View All Jobs");
             System.out.println("3. View All Applications");
